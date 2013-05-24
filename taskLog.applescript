@@ -1,7 +1,6 @@
 on run argv
 	set theResult to ""
 	set theEarliest to date (item 1 of argv)
-	# set theEarliest to date "Thursday, May 23, 2013 12:00:00 AM"
 	set theLatest to theEarliest + 1 * days
 	tell application "Tictoc"
 		
