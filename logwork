@@ -1,0 +1,4 @@
+#!/bin/bash
+TODAY=$(date "+%B %d, %Y")
+DATE=${1:-$TODAY}
+(echo "Development Time"; /usr/bin/osascript taskLog.applescript "$DATE") | /usr/local/bin/dayone -d="$DATE" new
