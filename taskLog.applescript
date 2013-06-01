@@ -12,7 +12,7 @@ on run argv
 				set theEnd to end date of theSession
 				if theStart < theLatest and theEnd > theEarliest then
 					if theStart < theEarliest then
-						set theStart to theEaliest
+						set theStart to theEarliest
 					end if
 					if theEnd > theLatest then
 						set theEnd to theLatest
