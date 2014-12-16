@@ -1,9 +1,12 @@
 on run argv
-	set theResult to ""
+	set theResult to "| Task | Time |
+| ----- | -----: |
+"
 	set theEarliest to date (item 1 of argv)
 	set theLatest to theEarliest + 1 * days
 	tell application "Tictoc"
-		
+	
+        set theTotal to 0
 		set theTaskList to properties of every task
 		repeat with theTask in tasks
 			set theTimeSpent to 0
@@ -21,14 +24,25 @@ on run argv
 				end if
 			end repeat
 			if theTimeSpent > 0 then
-				set theResult to theResult & "	" & my formatTime(theTimeSpent) & "	" & name of theTask & "
-"
+                set theTotal to theTotal + theTimeSpent
+                set theResult to theResult & formatRow(theTask, theTimeSpent)
 			end if
 		end repeat
 		
 	end tell
+    set theResult to theResult & formatTotal(theTotal)
 	return theResult as string
 end run
+
+to formatRow(theTask, theSeconds)
+    return "| " & name of theTask & " | " & my formatTime(theSeconds) & " |
+"
+end formatRow
+
+to formatTotal(theSeconds)
+    return "| **Total** | **" & formatTime(theSeconds) & "** |
+"
+end formatTime
 
 to formatTime(theSeconds)
 	set theHours to (theSeconds div hours)
