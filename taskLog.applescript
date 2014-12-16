@@ -1,6 +1,6 @@
 on run argv
-	set theResult to "| Task | Time |
-| ----- | -----: |
+	set theResult to "| Time | Task |
+| -----: | ----- |
 "
 	set theEarliest to date (item 1 of argv)
 	set theLatest to theEarliest + 1 * days
@@ -35,12 +35,12 @@ on run argv
 end run
 
 to formatRow(theTask, theSeconds)
-    return "| " & name of theTask & " | " & my formatTime(theSeconds) & " |
+    return "| " & my formatTime(theSeconds) & " | " & name of theTask & "|
 "
 end formatRow
 
 to formatTotal(theSeconds)
-    return "| **Total** | **" & formatTime(theSeconds) & "** |
+    return "| **" & formatTime(theSeconds) & "** ||
 "
 end formatTime
 
