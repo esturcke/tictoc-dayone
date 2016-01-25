@@ -25,7 +25,7 @@ on run argv
 			end repeat
 			if theTimeSpent > 0 then
                 set theTotal to theTotal + theTimeSpent
-                set theResult to theResult & formatRow(theTask, theTimeSpent)
+                set theResult to theResult & my formatRow(theTask, theTimeSpent)
 			end if
 		end repeat
 		
